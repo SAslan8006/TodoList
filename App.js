@@ -1,12 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Süleyman Aslan</Text>
+    <SafeAreaView style={styles.container}>
+      <Text numberOfLines={1} ellipsizeMode='tail'>Süleyman Aslan Süleyman Aslan Süleyman Aslan Süleyman Aslan Süleyman AslanSüleyman AslanSüleyman AslanSüleyman AslanSüleyman AslanSüleyman Aslan</Text>
+      <Text>
+        <Text>First part and </Text>
+        <Text>second part</Text>
+      </Text>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
