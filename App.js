@@ -1,23 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import Header from './src/components/Header';
+import CarList from './src/components/CarList';
 
 export default function App() {
+  const { container } = styles
   return (
-    <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} ellipsizeMode='tail'>Süleyman Aslan Süleyman Aslan Süleyman Aslan Süleyman Aslan Süleyman AslanSüleyman AslanSüleyman AslanSüleyman AslanSüleyman AslanSüleyman Aslan</Text>
-      <Text>
-        <Text>First part and </Text>
-        <Text>second part</Text>
-      </Text>
-      <StatusBar style="auto" />
-    </SafeAreaView>
-  );
+    <View style={{ container }}>
+      <Header title={"Cars"} />
+      <CarList />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
