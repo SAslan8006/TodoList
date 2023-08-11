@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import React, { Component } from 'react'
 import axios from "axios";
 import CarDetail from './CarDetail';
@@ -17,7 +17,7 @@ class CarList extends Component {
 
     renderList = () => {
         return this.state.carList.map((meal, index) => {
-            return <CarDetail key={meal.idCategory} brand={meal.strCategory} />
+            return <CarDetail key={index} brand={meal} />
         }
         );
     }
@@ -28,10 +28,9 @@ class CarList extends Component {
     render() {
         console.log(this.state)
         return (
-            <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <ScrollView>
                 {this.renderList()}
-
-            </View >
+            </ScrollView >
         )
     }
 }

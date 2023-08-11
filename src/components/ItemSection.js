@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         borderColor: 'gainsbro',
         flexDirection: 'row',
         justifyContent: "flex-start",
-        padding: 5
+        padding: 5,
     },
 });
 

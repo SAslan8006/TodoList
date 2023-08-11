@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         marginLeft: 5,
         marginRight: 5,
-        marginTop: 10
+        marginTop: 10,
+        borderRadius: 10
 
     },
 });
