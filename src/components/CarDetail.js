@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Linking } from "react-native";
 import Item from "./Item";
 import ItemSection from './ItemSection';
 import Button from "./Button";
@@ -18,7 +18,10 @@ const CarDetail = ({ brand }) => {
                 <Image style={styles.imageStyle} source={{ uri: brand.strCategoryThumb }} />
             </ItemSection>
             <ItemSection>
-                <Button />
+                <Button bottonPress={() => {
+                    Linking.openURL
+                    (brand.strCategoryThumb)
+                }} />
             </ItemSection>
 
         </Item>
