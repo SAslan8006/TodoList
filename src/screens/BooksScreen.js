@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import BookList from '../components/BookList'
 
-const BooksScreen = () => {
+const BooksScreen = ({navigation}) => {
     return (
         <View>
+            <TouchableOpacity onPress={() => { navigation.navigate('BookDetail') }}>
+                <Text style={{ fontSize: 20 }}>Add New</Text>
+            </TouchableOpacity>
             <BookList />
         </View>
     )

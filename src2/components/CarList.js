@@ -4,10 +4,12 @@ import axios from "axios";
 import CarDetail from './CarDetail';
 
 class CarList extends Component {
-    constructor() {
-        super();
-        this.state = { carList: [] }
-    }
+    // constructor() {
+    //     super();
+    //     this.state = { carList: [] }
+    // }
+    this.state = { carList: [] }
+    
     componentDidMount() {
         axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
             .then((response) => {
