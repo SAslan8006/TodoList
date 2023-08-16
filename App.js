@@ -9,7 +9,7 @@ function App () {
       <View style={styles.container}>
         <Text style={styles.title}>My Tasks</Text>
         <Text style={styles.subtitle}>Enter your tasks in the text box bellow and press the "Add" button to add.</Text>
-        <TextInput style={styles.input} placeholder="Enter your task here!" />
+        <TextInput style={styles.input} onChangeText={(value)=>setText(value)} placeholder="Enter your task here!" />
         <TouchableOpacity style={styles.buttonContainer}>
           <Text style={styles.buttonText} >Add Task</Text>
         </TouchableOpacity>
