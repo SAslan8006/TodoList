@@ -1,20 +1,31 @@
-import { createAppContainer } from 'react-navigation';
-import BooksScreen from './src/screens/BooksScreen';
-import { createStackNavigator } from 'react-navigation-stack';
-import BookDetailScreen from './src/screens/BookDetailScreen';
+import { StyleSheet,SafeAreaView, Text, View } from 'react-native'
+import React from 'react'
 
-const navigator = createStackNavigator(
-  {
-    Books: BooksScreen,
-    BookDetail: BookDetailScreen
-  },
-  {
-    initialRouteName: 'Books',
-    defaultNavigationOptions: {
-      title: 'Books'
-    }
+function App () {
+  return (
+    <SafeAreaView style={{flex:1}}>
+      <View style={styles.container}>
+        <Text style={styles.text}>My Tasks</Text>
+        <Text style={styles.text}>Enter your tasks in the text box bellow and press the "Add" button to add.</Text>
+
+      </View>
+    </SafeAreaView>
+  )
+}
+
+export default App
+
+const styles = StyleSheet.create({
+  container:{
+    marginLeft:16,
+    marginRight:16,
+    marginTop:46,
+    backgroundColor:"#dedede",
+    justifyContent:'center',
+    alignItems:'center',
+  }, 
+  text: {
+    fontSize:50
   }
-);
-
-export default createAppContainer(navigator);
+})
 
