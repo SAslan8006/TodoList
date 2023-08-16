@@ -1,31 +1,25 @@
-import { StyleSheet,SafeAreaView, Text, View } from 'react-native'
-import React from 'react'
+import { SafeAreaView, Text,TextInput, TouchableOpacity, View } from 'react-native'
+import React,{useState} from 'react'
+import { styles as styles} from './styles'
 
 function App () {
+  const [text,setText]=useState("");
   return (
     <SafeAreaView style={{flex:1}}>
       <View style={styles.container}>
-        <Text style={styles.text}>My Tasks</Text>
-        <Text style={styles.text}>Enter your tasks in the text box bellow and press the "Add" button to add.</Text>
-
+        <Text style={styles.title}>My Tasks</Text>
+        <Text style={styles.subtitle}>Enter your tasks in the text box bellow and press the "Add" button to add.</Text>
+        <TextInput style={styles.input} placeholder="Enter your task here!" />
+        <TouchableOpacity style={styles.buttonContainer}>
+          <Text style={styles.buttonText} >Add Task</Text>
+        </TouchableOpacity>
       </View>
+
     </SafeAreaView>
   )
 }
 
 export default App
 
-const styles = StyleSheet.create({
-  container:{
-    marginLeft:16,
-    marginRight:16,
-    marginTop:46,
-    backgroundColor:"#dedede",
-    justifyContent:'center',
-    alignItems:'center',
-  }, 
-  text: {
-    fontSize:50
-  }
-})
+
 
