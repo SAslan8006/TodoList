@@ -32,7 +32,35 @@ export const styles = StyleSheet.create({
         alignSelf:'flex-end'
     },
     buttonText:{
+        fontSize:18,        
+    },
+    divider:{
+        height:1,
+        backgroundColor:"#ddd",
+        marginVertical:32,
+    },
+    taskContainer:{
+        flexDirection:"row",
+        justifyContent:'space-between',
+        borderColor:"#ddd",
+        borderBottomWidth:1,
+        paddingVertical:12,
+    },
+    taskDeleteText:{
         fontSize:18,
-        
-    }
+        color:"white",
+        fontWeight:"bold",
+    },
+    taskDelete:{
+        width:23,
+        height:23,
+        borderRadius:13,
+        backgroundColor:"red",
+        justifyContent:"center" ,
+        alignItems:"center",
+    },
+    taskText:{
+        fontSize:18,
+    },
+
   })
