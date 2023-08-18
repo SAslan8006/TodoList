@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Text,Button, View } from "react-native";
 import React,{useState} from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Profile=({navigation})=>{
   const [user,setUser]=useState("Süleyman");
@@ -22,15 +23,27 @@ const SingUp=({navigation,route})=>{
 }
 
 const Stack = createNativeStackNavigator();
+const ProfileStack=()=>{
+  return( 
+  <Stack.Navigator>
+    <Stack.Screen name="Profile" component={Profile}/>
+    <Stack.Screen name='SignIn' component= {SignIn} options={{title:"Sing In"}}/>
+    <Stack.Screen name ='SignUp' component={SingUp} options={({route})=>({title:`Sign Up ${route.params.user}`})}/>
+  </Stack.Navigator>
+  )}
+
+  const Home = ()=>{
+    return <Text>Home</Text>
+  }
+const Tabs=createBottomTabNavigator();
 
 const App=() =>{
   return (
   <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen name="Profile" component={Profile}/>
-      <Stack.Screen name='SignIn' component= {SignIn} options={{title:"Sing In"}}/>
-      <Stack.Screen name ='SignUp' component={SingUp} options={({route})=>({title:`Sign Up ${route.params.user}`})}/>
-    </Stack.Navigator>
+    <Tabs.Navigator>
+      <Tabs.Screen name="Home" component={Home} />
+      <Tabs.Screen name="ProfileStack" component={ProfileStack} options={{title:"Profile", headerShown:false}} />  
+    </Tabs.Navigator>
   </NavigationContainer>);  
 }
 export default App;
