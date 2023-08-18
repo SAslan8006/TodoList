@@ -1,47 +1,37 @@
-import { FlatList, SafeAreaView, Text,TextInput, TouchableOpacity, View } from 'react-native'
-import React,{useState} from 'react'
-import { styles as styles} from './styles'
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Text,Button, View } from "react-native";
+import React,{useState} from "react";
 
-function App () {
-  const [text,setText]=useState("");
-  const [tasks,setTasks]=useState([]);
-
-  const handleAddTaskPress=()=>{
-    setTasks([...tasks,text]);
-    setText("");
-  }
-  const hanleDeleteTaskPress=(index)=>{
-    const newTasks=[...tasks];
-    newTasks.splice(index,1);
-    setTasks(newTasks);  
-  }
+const Profile=({navigation})=>{
+  const [user,setUser]=useState("Süleyman");
   return (
-    <SafeAreaView style={{flex:1}}>
-      <View style={styles.container}>
-        <Text style={styles.title}>My Tasks</Text>
-        <Text style={styles.subtitle}>Enter your tasks in the text box bellow and press the "Add" button to add.</Text>
-        <TextInput value={text} style={styles.input} onChangeText={setText} placeholder="Enter your task here!" />
-        <TouchableOpacity onPress={handleAddTaskPress} style={styles.buttonContainer}>
-          <Text style={styles.buttonText} >Add Task</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.divider}/>
-      <FlatList 
-        data={tasks} 
-        renderItem={({item,index})=>
-          <View style={styles.taskContainer}>
-            <Text style={styles.taskText}>{item}</Text>
-            <TouchableOpacity style={styles.taskDelete} onPress={()=>hanleDeleteTaskPress(index)}>
-              <Text style={styles.taskDeleteText}>X</Text>
-            </TouchableOpacity>
-          </View>}
-        keyExtractor={(item)=>item + Date.now()+Math.random()}
-        />
-    </SafeAreaView>
+  <View> 
+    <Text>You Have to Sing In</Text>
+    <Button title="SignIn" onPress={()=>{navigation.navigate("SignIn",{user})}}/>
+    <Button title="SingUp" onPress={()=>{navigation.navigate("SignUp",{user})}}/>
+
+  </View>
   )
 }
+const SignIn=({navigation,route})=>{
+  return <Text>SignIn {route.params.user}</Text>
+}
+const SingUp=({navigation,route})=>{
+  return <Text>SingUp</Text>
+}
 
+const Stack = createNativeStackNavigator();
+
+const App=() =>{
+  return (
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="Profile" component={Profile}/>
+      <Stack.Screen name='SignIn' component= {SignIn} options={{title:"Sing In"}}/>
+      <Stack.Screen name ='SignUp' component={SingUp} options={({route})=>({title:`Sign Up ${route.params.user}`})}/>
+    </Stack.Navigator>
+  </NavigationContainer>);  
+}
 export default App;
-
-
 
